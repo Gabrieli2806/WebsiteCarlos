@@ -42,8 +42,8 @@ body::before {
     left: 0;
     width: 300%;
     height: 100%;
-    font-size: 4rem;
-    color: rgba(255, 215, 0, 0.1);
+    font-size: 5rem;
+    color: rgba(255, 215, 0, 0.2);
     line-height: 3;
     word-spacing: 3rem;
     z-index: 0;
@@ -60,8 +60,8 @@ body::after {
     left: 0;
     width: 300%;
     height: 100%;
-    font-size: 3rem;
-    color: rgba(255, 215, 0, 0.06);
+    font-size: 4rem;
+    color: rgba(255, 215, 0, 0.15);
     line-height: 4;
     word-spacing: 2.5rem;
     z-index: 0;
@@ -576,17 +576,20 @@ body::after {
     position: relative;
     max-width: 100%;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .panoramic-carousel,
 .vertical-carousel {
     overflow: hidden;
     border-radius: 15px;
+    width: 100%;
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 /* Carousel Buttons */
@@ -649,10 +652,15 @@ body::after {
 .panoramic-item {
     position: relative;
     min-width: 100%;
+    width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
     cursor: pointer;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-bg);
 }
 
 .panoramic-item img {
@@ -660,6 +668,16 @@ body::after {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+    .panoramic-item {
+        aspect-ratio: 4 / 3;
+    }
+
+    .panoramic-item img {
+        object-fit: contain;
+    }
 }
 
 .panoramic-item:hover img {
@@ -760,6 +778,7 @@ body::after {
 .vertical-item {
     position: relative;
     min-width: 100%;
+    width: 100%;
     aspect-ratio: 9 / 16;
     max-height: 70vh;
     overflow: hidden;
